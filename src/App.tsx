@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -17,6 +17,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {API_TEST} from './services/api';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -27,11 +28,7 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  useEffect(() => {
-    fetch('http://10.0.2.2:8000/store/all/')
-      .then(res => res.json())
-      .then(result => console.log(result));
-  }, []);
+  API_TEST();
 
   return (
     <SafeAreaView style={backgroundStyle}>
